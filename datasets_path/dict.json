@@ -1,0 +1,89 @@
+{
+    "sequences": 
+    {
+        "calibration":
+        {
+            "start_time_s": 5.0,
+            "end_time_s": 20.0,
+            "div_time": 1
+        },
+        "boxes_6dof":
+        {
+            "start_time_s": 5.0,
+            "end_time_s": 20.0,
+            "div_time": 1
+        },
+        "dynamic_6dof":
+        {
+            "start_time_s": 5.0,
+            "end_time_s": 20.0,
+            "div_time": 1
+        },
+        "office_zigzag":
+        {
+            "start_time_s": 5.0,
+            "end_time_s": 12.0,
+            "div_time": 1
+        },
+        "poster_6dof":
+        {
+            "start_time_s": 5.0,
+            "end_time_s": 20.0,
+            "div_time": 1
+        },
+        "shapes_6dof":
+        {
+            "start_time_s": 5.0,
+            "end_time_s": 20.0,
+            "div_time": 1
+        },
+        "slider_depth":
+        {
+            "start_time_s": 1.0,
+            "end_time_s": 2.5,
+            "div_time": 1
+        },
+        "engineering_posters":
+        {
+            "start_time_s": 0.0,
+            "end_time_s": 24.0,
+            "div_time": 1e9
+        },
+        "indoor_flying1_data":
+        {
+            "start_time_s": 10.0,
+            "end_time_s": 70.0,
+            "div_time": 1
+        },
+        "indoor_flying2_data":
+        {
+            "start_time_s": 10.0,
+            "end_time_s": 70.0,
+            "div_time": 1
+        },
+        "indoor_flying3_data":
+        {
+            "start_time_s": 10.0,
+            "end_time_s": 70.0,
+            "div_time": 1
+        },
+        "indoor_flying4_data":
+        {
+            "start_time_s": 10.0,
+            "end_time_s": 19.8,
+            "div_time": 1
+        },
+        "outdoor_day1_data":
+        {
+            "start_time_s": 0.0,
+            "end_time_s": 60.0,
+            "div_time": 1
+        },
+        "outdoor_day2_data":
+        {
+            "start_time_s": 100.0,
+            "end_time_s": 160.0,
+            "div_time": 1
+        }
+    }
+}
