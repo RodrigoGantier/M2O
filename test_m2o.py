@@ -99,6 +99,10 @@ class Testet:
         self.resume_checkpoint()
         self.model.to(self.device)
 
+        self.vid_path = 'vid_output'
+        if not os.path.exists(self.vid_path):
+            os.makedirs(self.vid_path)
+
     def resume_checkpoint(self, ):
 
         resume_path = self.ckpt_path
@@ -139,6 +143,10 @@ class Testet:
                 self.metrics.set_params(sensor_size)
                 self.padd.set_params(sensor_size)
                 self.reset_state()
+
+                vid_name = os.path.join(self.vid_path, idx1 + '.mp4')
+                fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+                out_vid = cv2.VideoWriter(vid_name, fourcc, 30.0, (sensor_size[1], sensor_size[0]))
             
             image = sequence['frame'].float().to(args.device)
             v_len = sequence['events'].shape[1]
@@ -162,6 +170,10 @@ class Testet:
             lipsp_metric = self.metrics.lpips_metric(pred, image)
             is_nan = np.isnan(tc_metric) + np.isnan(ssim_metric) + np.isnan(mse_metric) + np.isnan(lipsp_metric)
             assert np.isnan(is_nan) == False
+
+            frame = np.tile(pred[0, 0, :, :, None].detach().cpu().numpy(), (1, 1, 3)) * 255
+            frame = np.asarray(frame, dtype=np.uint8)
+            out_vid.write(frame)
                 
             tc.append(tc_metric)
             ssim.append(ssim_metric)
@@ -224,20 +236,19 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser('Gradient prediction')
-    # parser.add_argument('--test_data_path', default='./datasets_path/test_night')
+    parser.add_argument('--test_data_path', default='./datasets_path/test_night')
     # parser.add_argument('--test_data_path', default='./datasets_path/MVSEC')
-    parser.add_argument('--test_data_path', default='./datasets_path/ECD')
     # parser.add_argument('--test_data_path', default='./datasets_path/HQF')
+    # parser.add_argument('--test_data_path', default='./datasets_path/ECD')
     # parser.add_argument('--test_data_path', default='./datasets_path/test')
     parser.add_argument('--test_data_json', default='./datasets_path/dict.json')
 
     
     parser.add_argument('--ckpt_path', default='./ckpt_m2o_adv_test/checkpoint-m2o.pth')
-
-    # parser.add_argument('--tensorbloard_path', default='./tensorbloard/m2o_noise_adv2_lol')
+    parser.add_argument('--tensorbloard_path', default='./tensorbloard/m2o_noise_adv2_lol')
     # parser.add_argument('--tensorbloard_path', default='./tensorbloard/m2o_noise_adv2_MVSEC')
     # parser.add_argument('--tensorbloard_path', default='./tensorbloard/m2o_noise_adv2best_HQF')
-    parser.add_argument('--tensorbloard_path', default='./tensorbloard/m2o_noise_adv2_EDC')
+    # parser.add_argument('--tensorbloard_path', default='./tensorbloard/m2o_noise_adv2_EDC')
     # parser.add_argument('--tensorbloard_path', default='./tensorbloard/m2o_noise_adv2_night')
     # parser.add_argument('--tensorbloard_path', default='./tensorbloard/m2o_noise_adv2')
 
