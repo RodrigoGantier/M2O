@@ -12,3 +12,14 @@ You can try M2O on [google colab](https://colab.research.google.com/drive/1_a7sU
 
 
 # <img src="https://www.bestundertaking.net:81/images/videoLogo.gif" width ="25"> <b>The training and testing set are on Baidu Netdisk</b> 
+
+The test set is at:
+https://pan.baidu.com/s/1CxEbCluxYqvObYwaICAP6g?pwd=1234 
+pass：1234
+
+The train set is at:
+https://pan.baidu.com
+pass：1234
+
+To run the code you need pytorch =< 2.1.0 
+
