@@ -32,5 +32,11 @@ To run the code you need pytorch =< 2.1.0
 </p>
 
 
-Our M2O-E2VID model that was trained with additional noise, removes hot pixels
+Our M2O-E2VID model was trained with additional real event camera noise, is capable of removing hot pixels.
+
+<p align="center">
+<img src="https://github.com/RodrigoGantier/M2O/blob/main/imgs/Checkerboard.gif" height="200" />
+</p>
+
+Also the addition of the L2 loss reducess the checkerboard pattern.
 
