@@ -17,9 +17,19 @@ The test set is at:
 https://pan.baidu.com/s/1CxEbCluxYqvObYwaICAP6g?pwd=1234 
 pass：1234
 
+
 The train set is at:
 https://pan.baidu.com
 pass：1234
 
 To run the code you need pytorch =< 2.1.0 
+
+<h3 align="center">In the following image we can see some results</h3>
+
+
+<p align="center">
+<img src="https://github.com/RodrigoGantier/M2O/blob/main/imgs/hot_pixel.gif" height="200" />
+</p>
+
+Our M2O-E2VID model that was trained with additional noise, removes hot pixels
 
