@@ -31,5 +31,6 @@ To run the code you need pytorch =< 2.1.0
 <img src="https://github.com/RodrigoGantier/M2O/blob/main/imgs/hot_pixel.gif" height="200" />
 </p>
 
+
 Our M2O-E2VID model that was trained with additional noise, removes hot pixels
 
