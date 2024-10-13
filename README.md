@@ -38,5 +38,6 @@ Our M2O-E2VID model was trained with additional real event camera noise, is capa
 <img src="https://github.com/RodrigoGantier/M2O/blob/main/imgs/Checkerboard.gif" height="200" />
 </p>
 
+
 Also the addition of the L2 loss reducess the checkerboard pattern.
 
