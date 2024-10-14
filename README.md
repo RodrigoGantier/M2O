@@ -72,7 +72,7 @@ To run the code you need: <br>
 python <= 3.10 <br>
 pytorch <= 2.1.0 <br> 
 numpy <= 1.24.4 <br>
-cv2 <= 4.9.0 <br>
+opencv <= 4.9.0 <br>
 tqdm <= 4.66.2 <br>
 argparse <= 1.1 <br>
 
