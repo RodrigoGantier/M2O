@@ -30,7 +30,7 @@ Our M2O-E2VID model, trained with additional real event camera noise, is capable
 Additionally, the inclusion of the L2 loss reduces the checkerboard pattern.
 
 
-# <img src="https://cdn.dribbble.com/users/1163047/screenshots/2697773/media/fb3030fceae825b853e91e747e11dc77.gif" width ="25"> <b>The training and validation and test set are on Baidu Netdisk</b> 
+# <img src="https://cdn.dribbble.com/users/1163047/screenshots/2697773/media/fb3030fceae825b853e91e747e11dc77.gif" width ="25"> <b>The training， validation and test set are on Baidu Netdisk</b> 
 
 
 The train set is at this link:
