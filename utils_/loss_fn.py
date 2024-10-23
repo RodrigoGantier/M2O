@@ -155,25 +155,24 @@ class tcLoss:
         flow_x = flow[:, 0, :, :]  # N x H x W
         flow_y = flow[:, 1, :, :]  # N x H x W
 
-        warping_grid_x = self.xx.to(pred.device) + flow_x  # N x H x W
-        warping_grid_y = self.yy.to(pred.device) + flow_y  # N x H x W
+        # backward flow
+        warping_grid_x = self.xx.to(pred.device) - flow_x  # N x H x W
+        warping_grid_y = self.yy.to(pred.device) - flow_y  # N x H x W
 
         # normalize warping grid to [-1,1]
         warping_grid_x = (2 * warping_grid_x / (self.t_width - 1)) - 1
         warping_grid_y = (2 * warping_grid_y / (self.t_height - 1)) - 1
         warping_grid = torch.stack([warping_grid_x, warping_grid_y], dim=3)  # 1 x H x W x 2
 
-        # warp the n GT image to the n+1: image (n) to (n+1)
-        img0_warped_img1 = F.grid_sample(img_0, warping_grid, align_corners=True)
-        # warp the n predited image to the n + 1: predic (n) to (n+1) 
-        prod0_warped_to1 = F.grid_sample(pred, warping_grid, align_corners=True)
+        # warp the n+1 GT image to the n: image (n+1) to (n)
+        img1_warped_img0 = F.grid_sample(img_1, warping_grid, align_corners=True)
 
-        # compure the visibility_mask with GT image(n+1) and the warped GT image(n+1)  
-        visibility_mask = torch.exp(-self.alpha * (img_1 - img0_warped_img1) ** 2)
+        # compure the visibility_mask with GT image(n) and the warped GT image(n)  
+        visibility_mask = torch.exp(-self.alpha * (img_0 - img1_warped_img0) ** 2)
 
         # calculate the distance between the GT image(n+1) and the warped predited image(n+1)
-        tc_loss = visibility_mask * torch.abs(img_1 - prod0_warped_to1) \
-             / (torch.abs(img_1) + torch.abs(prod0_warped_to1) + 1e-5)
+        tc_loss = visibility_mask * torch.abs(pred - img1_warped_img0) \
+             / (torch.abs(pred) + torch.abs(img1_warped_img0) + 1e-5)
 
         return tc_loss.mean()
         
