@@ -7,7 +7,7 @@
 
 <h3 align="center">Many-to-One Training Scheme for Event-to-Video Reconstruction</h3>
 
-You can try M2O on [google colab](https://colab.research.google.com/drive/1_a7sUYXiC94thhQ0fXRL1UvhddLt9Fje#scrollTo=aHITjhQP2HkC) 
+You can try M2O on [Google Colab](https://colab.research.google.com/drive/1_a7sUYXiC94thhQ0fXRL1UvhddLt9Fje#scrollTo=aHITjhQP2HkC) 
 [<img src="https://img.shields.io/badge/-colab-05122A?style=flat&logo=googlecolab"/>](https://colab.research.google.com/drive/1y3S9V3smWDdXoCqh_7dRofaONx0TS79E?usp=sharing)<br>
 
 Once you are in Google Colab, make sure to run all sections. At the end, you can download the resulting video. The script in Google Colab reconstructs only one sequence due to permanent storage limitations. To reconstruct the entire test set, you can download the code and data locally.
